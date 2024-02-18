@@ -1,0 +1,223 @@
+$Primary-Black: #000;
+$Grey-100: #F6F7F9;
+$Grey-300: #CED2D6;
+$Grey-400: #9EA5AD;
+$Grey-900: #24292E;
+$Blue-600: #506BC9;
+$Success-600: #53B483;
+$Success-700: #2F9461;
+$Error-700: #CD3636;
+
+#root {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.menu {
+    background: $Grey-900;
+    width: 262px;
+    padding: 52px 32px;
+
+    &__header {
+        font-size: 20px;
+        color: $Grey-100;
+        padding: 0 8px;
+        margin-bottom: 66px;
+    }
+
+    &__section {
+        margin-bottom: 32px;
+
+        &__header {
+            font-size: 12px;
+            color: $Grey-400;
+            margin-bottom: 10px;
+            padding: 0 8px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        padding: 8px;
+
+        &__icon {
+            margin-right: 16px;
+        }
+    }
+}
+
+.content {
+    background: #FFF;
+    width: 100%;
+    padding: 36px 56px;
+    color: $Primary-Black;
+}
+
+.welcome {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.analysis {
+    display: grid;
+    grid-template-areas: 
+        'trends recent-reviews'
+        'sentiment recent-reviews'
+        'review-volume recent-reviews';
+    column-gap: 48px;
+    row-gap: 40px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 12px;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    &__dropdown {
+        position: relative;
+          
+        &::after {
+            content: url('./icons/chevron-down.svg');
+            font-size: 16px;
+            top: 4px;
+            right: 4px;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        &__content {
+            background-color: $Grey-100;
+            color: $Primary-Black;
+            padding: 4px 20px 4px 8px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 20px;
+            border: 1px solid $Grey-300;
+            font-size: 14px;
+            font-weight: 500;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+       
+    }
+
+    &__link {
+        display: flex;
+        font-size: 14px;
+        color: $Blue-600;
+        flex: 1;
+        justify-content: flex-end;
+
+        &__icon {
+            margin-left: 8px;
+        }
+    }
+}
+
+.trends {
+    grid-area: trends;
+
+    &__title {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    &__number {
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 60px;
+        letter-spacing: -0.96px;
+        margin-bottom: 4px;
+    }
+
+    &__info {
+        display: flex;
+    }
+
+    &__label {
+        font-size: 12px;
+        font-weight: 500;
+        margin-left: 4px;
+
+        &.--success {
+            color: $Success-700;
+        }
+
+        &.--error {
+            color: $Error-700;
+        }
+    }
+
+    .analysis__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+    }
+}
+
+.sentiment {
+    grid-area: sentiment;
+
+    &__column-label {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    &__section {
+        display: flex;
+        align-items: flex-start;
+        padding: 16px;
+        column-gap: 24px;
+        border-radius: 8px;
+        border: 1px solid $Grey-300;
+
+        &__graphic {
+            width: 60px;
+        }
+
+        &__label {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        &__bar {
+            margin-right: 8px;
+        }
+
+        &__item {
+            display: inline-flex;
+            color: $Grey-900;
+            font-size: 12px;
+            font-weight: 400;
+            margin-right: 8px;
+        }
+    }
+
+    .analysis__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+}
+
+.review-volume {
+    grid-area: review-volume;
+}
+
+.recent-reviews {
+    grid-area: recent-reviews;
+    width: 342px;
+
+    .analysis__header {
+        justify-content: space-between;
+    }
+}
