@@ -2,8 +2,10 @@ $Primary-Black: #000;
 $Grey-100: #F6F7F9;
 $Grey-300: #CED2D6;
 $Grey-400: #9EA5AD;
+$Grey-800: #383F45;
 $Grey-900: #24292E;
 $Blue-600: #506BC9;
+$Success-500: #6AD09D;
 $Success-600: #53B483;
 $Success-700: #2F9461;
 $Error-700: #CD3636;
@@ -16,12 +18,11 @@ $Error-700: #CD3636;
 
 .menu {
     background: $Grey-900;
-    width: 262px;
+    min-width: 262px;
     padding: 52px 32px;
 
     &__header {
-        font-size: 20px;
-        color: $Grey-100;
+        height: 30px;
         padding: 0 8px;
         margin-bottom: 66px;
     }
@@ -39,10 +40,29 @@ $Error-700: #CD3636;
 
     &__item {
         display: flex;
+        align-items: center;
         padding: 8px;
 
         &__icon {
             margin-right: 16px;
+            fill: $Grey-100;
+        }
+
+        &__label {
+            color: $Grey-100;
+        }
+
+        &.active {
+            border-radius: 4px;
+            background: $Grey-800;
+
+            .menu__item__icon {
+                fill: $Success-500;
+            }
+    
+            .menu__item__label {
+                color: $Success-500;
+            }
         }
     }
 }
