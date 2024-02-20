@@ -1,7 +1,6 @@
 import './App.scss';
 import Overview from './Overview.jsx';
 import Sentiment from './Sentiment.jsx'
-import Search from './Search.jsx';
 import MagnifyingGlassIcon from './icons/magnifying-glass.svg';
 import CogIcon from './icons/cog.svg';
 import BellIcon from './icons/bell.svg';
@@ -14,15 +13,15 @@ function Menu() {
     // menu items
     const mainMenuItems = [
         { to: '/', icon: 'home', label: 'Overview' },
+        { to: '/sentiment', icon: 'favorite', label: 'Sentiment' },
         { to: '/', icon: 'star', label: 'Reviews' },
-        { to: '/', icon: 'forum', label: 'Social' },
         { to: '/', icon: 'signal_cellular_alt', label: 'Compare' },
     ];
 
     // pinned items
     const pinnedItems = [
-        { to: '/sentiment', icon: 'favorite', label: 'Sentiment' },
         { to: '/', icon: 'location_on', label: 'Locations' },
+        { to: '/', icon: 'forum', label: 'Social' },
     ];
 
     return (
