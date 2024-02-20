@@ -4,24 +4,15 @@ import App from './App.jsx'
 import Sentiment from './Sentiment.jsx'
 import './index.css'
 
-import {
-        createBrowserRouter,
-        RouterProvider,
-    } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-    const router = createBrowserRouter([
-        {
-            path: "/",
-            element: <App />,
-        },
-        {
-            path: "/sentiment",
-            element: <Sentiment />,
-        },
-    ]);
-
-    ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <Router>
+            <Routes>
+                <Route path ="/" element={<App />} />
+                <Route path ="/sentiment" element={<Sentiment />} />
+            </Routes>
+        </Router>
     </React.StrictMode>,
 )

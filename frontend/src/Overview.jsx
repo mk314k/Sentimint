@@ -21,7 +21,7 @@ import RectangleGreenIcon from './icons/rectangleGreen.svg';
 import RectangleRedIcon from './icons/rectangleRed.svg';
 import RectangleYellowIcon from './icons/rectangleYellow.svg';
 
-function Overview(props) {
+function Overview() {
     return (
         <>
         <h1 className='welcome'>Welcome back, Laura</h1>
