@@ -53,7 +53,7 @@ function Overview() {
                                         <img src={icon} className='trends__icon' />
                                         <span className={`trends__label ${labelClassName}`}>
                                             {isIncrease ? item.change : item.change.slice(1,)}
-                                            {isIncrease ? 'increase' : 'decrease'}
+                                            {isIncrease ? ' increase' : ' decrease'}
                                         </span>
                                     </div>
                                 </div>
