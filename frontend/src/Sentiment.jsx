@@ -13,7 +13,7 @@ import RectangleGreenIcon from './icons/rectangleGreen.svg';
 import RectangleRedIcon from './icons/rectangleRed.svg';
 import RectangleYellowIcon from './icons/rectangleYellow.svg';
 
-function Analysis(props) {
+function Analysis() {
     return (
         <>
         <h1 className='welcome'>Sentiment</h1>
