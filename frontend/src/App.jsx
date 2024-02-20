@@ -68,6 +68,7 @@ function App() {
                 </div>
                 <Routes>
                     <Route path ="/" element={<Overview />} />
+                    <Route path ="/Google-PM-Hackathon-2024/" element={<Overview />} />
                     <Route path ="/sentiment" element={<Sentiment />} />
                 </Routes>
             </div>
