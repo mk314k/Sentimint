@@ -1,6 +1,7 @@
 import './App.scss';
 import Overview from './Overview.jsx';
 import Sentiment from './Sentiment.jsx'
+import Search from './Search.jsx';
 import MagnifyingGlassIcon from './icons/magnifying-glass.svg';
 import CogIcon from './icons/cog.svg';
 import BellIcon from './icons/bell.svg';

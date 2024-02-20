@@ -1,4 +1,6 @@
 $Primary-Black: #000;
+$Primary-White: #FFF;
+$Grey-50: #FAFAFA;
 $Grey-100: #F6F7F9;
 $Grey-300: #CED2D6;
 $Grey-400: #9EA5AD;
@@ -6,10 +8,15 @@ $Grey-600: #596066;
 $Grey-800: #383F45;
 $Grey-900: #24292E;
 $Blue-600: #506BC9;
+$Success-300: #B8F1D2;
 $Success-500: #6AD09D;
 $Success-600: #53B483;
 $Success-700: #2F9461;
+$Success-900: #255E46;
+$Success-1000: #1E4D3A;
 $Error-700: #CD3636;
+$Gradient1: #C6F4DB;
+$Gradient2: #F3FFF8;
 
 #root {
     display: flex;
@@ -25,17 +32,31 @@ $Error-700: #CD3636;
     &__header {
         height: 30px;
         padding: 0 8px;
-        margin-bottom: 66px;
+        margin-bottom: 75px;
     }
 
     &__section {
-        margin-bottom: 32px;
+        margin-bottom: 40px;
 
         &__header {
             font-size: 12px;
             color: $Grey-400;
             margin-bottom: 10px;
             padding: 0 8px;
+        }
+
+        &__more {
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+    
+            &__text {
+                margin: 0 16px;
+                flex: 1;
+                font-size: 14px;
+                font-weight: 500;
+                color: $Grey-100;
+            }
         }
     }
 
@@ -51,6 +72,7 @@ $Error-700: #CD3636;
 
         &__label {
             color: $Grey-100;
+            font-size: 14px;
         }
 
         &.active {
@@ -99,7 +121,7 @@ $Error-700: #CD3636;
 
 .welcome {
     font-size: 30px;
-    margin-bottom: 40px;
+    margin: 40px 0;
 }
 
 .analysis {
@@ -291,6 +313,7 @@ $Error-700: #CD3636;
             'logo city photos'
             'logo details photos';
         grid-template-columns: 32px 1fr 28px;
+        align-items: center;
         column-gap: 10px;
         margin-bottom: 8px;
     }
@@ -349,5 +372,205 @@ $Error-700: #CD3636;
 
     .analysis__content {
         padding: 0 8px;
+    }
+}
+
+.sentiment {
+    &__body {
+        display: flex;
+        padding: 40px 0;
+        gap: 16px;
+    }
+
+    &__header {
+        font-size: 30px;
+        margin-bottom: 40px;
+        margin-top: 0;
+    }
+
+    &__left {
+        flex: 0 0 343px;
+    }
+
+    &__right {
+        flex: 1;
+    }
+
+    &__insight {
+        display: flex;
+        border-radius: 8px;
+        background: linear-gradient(180deg, $Gradient1 0%, $Gradient2 100%);
+        overflow: auto;
+        margin-bottom: 16px;
+
+        &__content {
+            padding: 16px 24px 24px;
+        }
+
+        &__kicker {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: $Success-1000;
+            margin-bottom: 16px;
+
+            &__icon {
+                margin-left: 6px;
+            }
+        }
+
+        &__text {
+            font-size: 16px;
+            font-weight: 400;
+            color: $Grey-800;
+            margin-bottom: 20px;
+        }
+
+        &__keywords {
+            font-weight: 600;
+            color: $Success-900;
+        }
+
+        &__button {
+            border-radius: 8px;
+            background: $Primary-Black;
+            box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12), 0px 0px 0px 1px rgba(103, 110, 118, 0.16), 0px 2px 5px 0px rgba(103, 110, 118, 0.08);
+            padding: 10px 18px;
+            color: $Primary-White;
+            display: flex;
+            align-items: center;
+            width: 241px;
+            justify-content: space-between;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        &__image {
+            object-fit: cover;
+        }
+    }
+
+    &__reviews {
+        border-radius: 8px;
+        border: 1px solid $Grey-300;
+        padding: 6px 24px;
+
+        .recent-reviews {
+            &__tile {
+                padding: 18px 0;
+            }
+
+            &__bottom {
+                display: flex;
+                gap: 40px;
+            }
+
+            &__image {
+                border-radius: 8px;
+            }
+
+            &__highlight {
+                border-radius: 2px;
+                background: $Success-300;
+                font-weight: 700;
+                color: $Grey-900;
+            }
+        }
+    }
+}
+
+.feedback {
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 1px solid $Grey-900;
+        padding-bottom: 8px;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        flex: 1;
+    }
+
+    &__dropdown {
+        position: relative;
+          
+        &::after {
+            content: url('./icons/chevron-down.svg');
+            font-size: 16px;
+            top: 4px;
+            right: 4px;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        &__content {
+            background-color: $Grey-100;
+            color: $Primary-Black;
+            padding: 4px 20px 4px 8px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 20px;
+            border: 1px solid $Grey-300;
+            font-size: 14px;
+            font-weight: 500;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+       
+    }
+
+    &__section {
+        display: flex;
+        align-items: flex-start;
+        padding: 16px;
+        column-gap: 24px;
+        border-bottom: 1px solid $Grey-300;
+        background-color: $Grey-50;
+        cursor: pointer;
+
+        &:first-of-type {
+            background-color: $Primary-White;
+        }
+
+        &:nth-child(n+7) {
+            display: none;
+        }
+
+        &__graphic {
+            width: 60px;
+        }
+
+        &__label {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: $Primary-Black;
+        }
+
+        &__bar {
+            height: 10px;
+            margin-right: 6px;
+        }
+
+        &__item {
+            display: inline-flex;
+            align-items: center;
+            color: $Grey-900;
+            font-size: 12px;
+            font-weight: 400;
+            margin-right: 8px;
+        }
+    }
+
+    .analysis__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
     }
 }
