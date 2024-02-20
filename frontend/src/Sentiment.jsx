@@ -1,5 +1,4 @@
 import './App.scss';
-import Menu from './Menu.jsx';
 import ArrowRightWhite from './icons/arrow-right-white.svg';
 import SparklesIcon from './icons/sparkles.svg';
 import Pie1Icon from './icons/pie1.svg';
@@ -11,7 +10,7 @@ import Pie6Icon from './icons/pie6.svg';
 import PieBreakfast from './icons/pieBreakfast.svg';
 import PieWifi from './icons/pieWifi.svg';
 import InsightPos from './icons/insightPos.svg';
-import InsightNeg from './icons/insightNeg.svg';
+// import InsightNeg from './icons/insightNeg.svg';
 import PosReview1 from './icons/posReview1.svg';
 import PosReview3 from './icons/posReview3.svg';
 import RectangleGreenIcon from './icons/rectangleGreen.svg';
@@ -323,7 +322,7 @@ function SentimentBody() {
                     <img src={Rating5} className='recent-reviews__rating' />
                     <div className='recent-reviews__bottom'>
                         <div className='recent-reviews__text'>
-                            Life Alive is my favorite restauraunt and I'm so glad they opened this location next to the MIT campus! The <span className='recent-reviews__highlight'>&nbsp;interior environment is really nice&nbsp;</span> and service was very quick and friendly. The food here is INCREDIBLE. I'm vegan and eating whole foods is very important to me, so I love the menu here. I brought meat eater friends and they loved the food as well. The portion sizes here are also very generous and filling. Highly highly recommend.
+                            Life Alive is my favorite restauraunt and I&apos; m so glad they opened this location next to the MIT campus! The <span className='recent-reviews__highlight'>&nbsp;interior environment is really nice&nbsp;</span> and service was very quick and friendly. The food here is INCREDIBLE. I&apos; m vegan and eating whole foods is very important to me, so I love the menu here. I brought meat eater friends and they loved the food as well. The portion sizes here are also very generous and filling. Highly highly recommend.
                         </div>
                         <img src={PosReview1} className='recent-reviews__image' />
                     </div>
@@ -356,7 +355,7 @@ function SentimentBody() {
                     <img src={Rating3} className='recent-reviews__rating' />
                     <div className='recent-reviews__bottom'>
                         <div className='recent-reviews__text'>
-                        Service: Food was fast! <br/><br/>Ambiance: <br/><span className='recent-reviews__highlight'>&nbsp;It's so nice here. The store is super nice and modern, there's tons of natural light, very clean.&nbsp;</span> Definitely one of the nicer Life Alives. It's in a great area as well!
+                        Service: Food was fast! <br/><br/>Ambiance: <br/><span className='recent-reviews__highlight'>&nbsp;It&apos;s so nice here. The store is super nice and modern, there&apos;s tons of natural light, very clean.&nbsp;</span> Definitely one of the nicer Life Alives. It&apos;s in a great area as well!
                         </div>
                         <img src={PosReview3} className='recent-reviews__image' />
                     </div>
@@ -413,17 +412,5 @@ function SentimentBody() {
     );
 }
 
-function Sentiment() {
 
-    return (
-        <>
-            <Menu />
-            <div className='content'>
-                <div className='search'>search</div>
-                <SentimentBody />
-            </div>
-        </>
-    )
-}
-
-export default Sentiment
+export default SentimentBody
