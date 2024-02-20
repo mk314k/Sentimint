@@ -14,7 +14,9 @@ $Success-600: #53B483;
 $Success-700: #2F9461;
 $Success-900: #255E46;
 $Success-1000: #1E4D3A;
+$Error-300: #FAC7C7;
 $Error-700: #CD3636;
+$Warning-300: #FDE57E;
 $Gradient1: #C6F4DB;
 $Gradient2: #F3FFF8;
 
@@ -447,6 +449,24 @@ $Gradient2: #F3FFF8;
             font-weight: 600;
         }
 
+        &__link {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            cursor: pointer;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            &__text {
+                font-size: 14px;
+                font-weight: 600;
+                text-decoration-line: underline;
+                margin-left: 8px;
+            }
+        }
+
         &__image {
             object-fit: cover;
         }
@@ -460,6 +480,10 @@ $Gradient2: #F3FFF8;
         .recent-reviews {
             &__tile {
                 padding: 18px 0;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
             }
 
             &__bottom {
@@ -474,6 +498,20 @@ $Gradient2: #F3FFF8;
             &__highlight {
                 border-radius: 2px;
                 background: $Success-300;
+                font-weight: 700;
+                color: $Grey-900;
+            }
+
+            &__lowlight {
+                border-radius: 2px;
+                background: $Error-300;
+                font-weight: 700;
+                color: $Grey-900;
+            }
+
+            &__midlight {
+                border-radius: 2px;
+                background: $Warning-300;
                 font-weight: 700;
                 color: $Grey-900;
             }

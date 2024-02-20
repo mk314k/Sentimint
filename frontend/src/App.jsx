@@ -50,9 +50,6 @@ function Menu() {
     );
 }
 
-
-
-
 function App() {
 
     return ( 
