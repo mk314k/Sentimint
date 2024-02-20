@@ -1,5 +1,3 @@
-import { NavLink } from 'react-router-dom';
-
 import ArrowRightIcon from './icons/arrow-right.svg';
 import ArrowUpCircleIcon from './icons/arrow-up-circle.svg';
 import ArrowDownCircleIcon from './icons/arrow-down-circle.svg';
@@ -21,6 +19,12 @@ import RectangleGreenIcon from './icons/rectangleGreen.svg';
 import RectangleRedIcon from './icons/rectangleRed.svg';
 import RectangleYellowIcon from './icons/rectangleYellow.svg';
 
+const analysisContent = [
+    { title: 'Average new ratings', number: '4.7', change: '0.2'},
+    { title: 'Number of new reviews', number: '12', change: '2'},
+    { title: 'Positive sentiment', number: '80%', change: '-12%'}
+]
+
 function Overview() {
     return (
         <>
@@ -36,49 +40,43 @@ function Overview() {
                         </a>
                     </div>
                     <div className='analysis__content'>
-                        <div className='trends__section'>
-                            <div className='trends__title'>Average new ratings</div>
-                            <div className='trends__number'>4.7</div>
-                            <div className='trends__info'>
-                                <img src={ArrowUpCircleIcon} className='trends__icon' />
-                                <span className='trends__label --success'>0.2 increase</span>
-                            </div>
-                        </div>
-                        <div className='trends__section'>
-                            <div className='trends__title'>Number of new reviews</div>
-                            <div className='trends__number'>12</div>
-                            <div className='trends__info'>
-                                <img src={ArrowUpCircleIcon} className='trends__icon' />
-                                <span className='trends__label --success'>2 increase</span>
-                            </div>
-                        </div>
-                        <div className='trends__section'>
-                            <div className='trends__title'>Positive sentiment</div>
-                            <div className='trends__number'>80%</div>
-                            <div className='trends__info'>
-                                <img src={ArrowDownCircleIcon} className='trends__icon' />
-                                <span className='trends__label --error'>12% increase</span>
-                            </div>
-                        </div>
+                        {analysisContent.map((item, index)=>{
+                            const isIncrease = parseFloat(item.change) >= 0;
+                            const icon = isIncrease ? ArrowUpCircleIcon : ArrowDownCircleIcon;
+                            const labelClassName = isIncrease ? '--success' : '--error';
+
+                            return (
+                                <div className='trends__section' key={index}>
+                                    <div className='trends__title'>{item.title}</div>
+                                    <div className='trends__number'>{item.number}</div>
+                                    <div className='trends__info'>
+                                        <img src={icon} className='trends__icon' />
+                                        <span className={`trends__label ${labelClassName}`}>
+                                            {isIncrease ? item.change : item.change.slice(1,)}
+                                            {isIncrease ? 'increase' : 'decrease'}
+                                        </span>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
                 <div className='sentiment'>
                     <div className='analysis__header'>
                         <div className='analysis__title'>Sentiment tracking</div>
                         <div className='analysis__dropdown'>
-                            <select name='month' id='month' className='analysis__dropdown__content'>
-                                <option value='February'>February</option>
-                                <option value='January'>January</option>
-                                <option value='December'>December</option>
-                                <option value='November'>November</option>
-                            </select>
+                        <select name='month' id='month' className='analysis__dropdown__content'>
+                            {['February', 'January', 'December', 'November'].map((month, index) => (
+                                <option key={index} value={month}>{month}</option>
+                            ))}
+                        </select>
                         </div>
                         <div className='analysis__dropdown'>
-                            <select name='location' id='location' className='analysis__dropdown__content'>
-                                <option value='All locations'>All locations</option>
-                                <option value='Kendall'>Kendall</option>
-                                <option value='Central'>Central</option>
-                            </select>
+                        <select name='location' id='location' className='analysis__dropdown__content'>
+                            {['All locations', 'Kendall', 'Central'].map((location, index) => (
+                                <option key={index} value={location}>{location}</option>
+                            ))}
+                        </select>
                         </div>
                         <a className='analysis__link'>
                             <span>View all</span>
@@ -88,7 +86,7 @@ function Overview() {
                     <div className='analysis__content'>
                         <div className='sentiment__column-label'>Most positive topics</div>
                         <div className='sentiment__column-label'>Most negative topics</div>
-                        <NavLink to='/sentiment' className='sentiment__section'>
+                        <div className='sentiment__section'>
                             <img src={Pie1Icon} className='sentiment__section__graphic' />
                             <div className='sentiment__section__info'>
                                 <div className="sentiment__section__label">Atmosphere</div>
@@ -119,7 +117,7 @@ function Overview() {
                                     </span>
                                 </div>
                             </div>
-                        </NavLink>
+                        </div>
                         <div className='sentiment__section'>
                             <img src={Pie2Icon} className='sentiment__section__graphic' />
                             <div className='sentiment__section__info'>

@@ -1,5 +1,4 @@
 import './App.scss';
-import Menu from './Menu.jsx';
 import ArrowRightIcon from './icons/arrow-right.svg';
 import ArrowUpCircleIcon from './icons/arrow-up-circle.svg';
 import ArrowDownCircleIcon from './icons/arrow-down-circle.svg';
@@ -307,11 +306,7 @@ function Sentiment() {
 
     return (
         <>
-            <Menu />
-            <div className='content'>
-                <div className='search'>search</div>
-                <Analysis />
-            </div>
+            <Analysis />
         </>
     )
 }

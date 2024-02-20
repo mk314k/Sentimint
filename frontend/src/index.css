@@ -12,7 +12,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+i {
+  color: white;
+  margin-right: 10px;
+  font-size: 1.1em !important;
+}
 a {
   font-weight: 500;
   color: #646cff;
