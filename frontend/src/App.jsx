@@ -35,7 +35,7 @@ function Menu() {
     ];
 
     return (
-        <div className='menu'>
+        <div className='menu flex-vertical'>
             <img src={SentimintLogoLight} className='menu__header' />
             <div className='menu__section'>
                 <div className='menu__section__header'>MAIN</div>
@@ -65,7 +65,7 @@ function App() {
     return ( 
         <Router>
             <Menu />
-            <div className='content'>
+            <main className='content flex-vertical'>
                 <div className='search'>
                     <img src={MagnifyingGlassIcon} className='search__icon' />
                     <span className='search__text'>Search</span>
@@ -78,7 +78,7 @@ function App() {
                     <Route path ="/Google-PM-Hackathon-2024/" element={<Overview />} />
                     <Route path ="/sentiment" element={<Sentiment />} />
                 </Routes>
-            </div>
+            </main>
         </Router>
     )
 }

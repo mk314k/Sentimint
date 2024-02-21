@@ -30,6 +30,11 @@ $Gradient2: #F3FFF8;
     background: $Grey-900;
     min-width: 262px;
     padding: 52px 32px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+
 
     &__header {
         height: 30px;
