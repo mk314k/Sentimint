@@ -9,11 +9,7 @@ from textblob import TextBlob
 try:
     nlp = spacy.load("en_core_web_sm")
 except: # pylint: disable=W0702  # Ignore exception type
-    import subprocess
-    subprocess.Popen(
-        "python -m spacy download en_core_web_sm",
-        shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
-    )
+    spacy.cli.download("en_core_web_sm")
     nlp = spacy.load("en_core_web_sm")
 
 def preprocess(text):
