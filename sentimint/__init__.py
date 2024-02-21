@@ -1,4 +1,4 @@
 """
 _summary_
 """
-from .sentimint import *
+from .absa import absa
