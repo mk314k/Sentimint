@@ -1,5 +1,6 @@
 """
-_summary_
+Aspect Based Sentiment Analysis 
+using Spacy and NLTK together
 """
 import re
 import spacy
@@ -7,7 +8,7 @@ from textblob import TextBlob
 
 try:
     nlp = spacy.load("en_core_web_sm")
-except:
+except: # pylint: disable=W0702  # Ignore exception type
     import subprocess
     subprocess.Popen(
         "python -m spacy download en_core_web_sm",
@@ -64,11 +65,11 @@ def extract_aspect(sentences):
                 target = token.text
             if token.pos_ == 'ADJ':
                 prepend = ''
-            for child in token.children:
-                if child.pos_ != 'ADV':
-                    continue
-                prepend += child.text + ' '
-            descriptive_term.append(prepend + token.text)
+                for child in token.children:
+                    if child.pos_ != 'ADV':
+                        continue
+                    prepend += child.text + ' '
+                descriptive_term.append(prepend + token.text)
         if descriptive_term:
             for dterm in descriptive_term:
                 if not target:
@@ -89,3 +90,14 @@ def sentiment_scoring(aspects):
     for aspect in aspects:
         aspect['sentiment'] = TextBlob(aspect['description']).sentiment
     return aspects
+
+def absa(review):
+    """
+    Perform full absa 
+
+    Args:
+        review (_type_): one single review
+    """
+    tokens = preprocess(review)
+    aspect_senti = extract_aspect(tokens)
+    return sentiment_scoring(aspect_senti)

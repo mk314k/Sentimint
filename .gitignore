@@ -132,4 +132,5 @@ dist
 check*.ipynb
 checkpoints*
 *.pth
+__pycache__
 
