@@ -33,6 +33,9 @@ function SentimentBody() {
         <select value={sortDir} onChange={(e) => setSortDir(e.target.value)} className='feedback__dropdown__content'>
             <option value='positive'>Most positive</option>
             <option value='negative'>Most negative</option>
+            <option value='option3'>Most talked about</option>
+            <option value='option4'>Most sentiment variance</option>
+            <option value='option5'>Least sentiment variance</option>
         </select>
     );
 

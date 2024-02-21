@@ -19,6 +19,8 @@ import RectangleGreenIcon from './icons/rectangleGreen.svg';
 import RectangleRedIcon from './icons/rectangleRed.svg';
 import RectangleYellowIcon from './icons/rectangleYellow.svg';
 
+import { Link } from 'react-router-dom';
+
 const analysisContent = [
     { title: 'Average new ratings', number: '4.7', change: '0.2'},
     { title: 'Number of new reviews', number: '12', change: '2'},
@@ -73,7 +75,7 @@ function Overview() {
                         </div>
                         <div className='analysis__dropdown'>
                         <select name='location' id='location' className='analysis__dropdown__content'>
-                            {['All locations', 'Kendall', 'Central'].map((location, index) => (
+                            {['All locations', 'Kendall Square', 'Central Square', 'Back Bay', 'Brookline', 'Harvard Square', 'Davis Square'].map((location, index) => (
                                 <option key={index} value={location}>{location}</option>
                             ))}
                         </select>
@@ -86,7 +88,7 @@ function Overview() {
                     <div className='analysis__content'>
                         <div className='sentiment__column-label'>Most positive topics</div>
                         <div className='sentiment__column-label'>Most negative topics</div>
-                        <div className='sentiment__section'>
+                        <Link to='/sentiment' key='9' className='sentiment__section'>
                             <img src={Pie1Icon} className='sentiment__section__graphic' />
                             <div className='sentiment__section__info'>
                                 <div className="sentiment__section__label">Atmosphere</div>
@@ -117,7 +119,7 @@ function Overview() {
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                         <div className='sentiment__section'>
                             <img src={Pie2Icon} className='sentiment__section__graphic' />
                             <div className='sentiment__section__info'>

@@ -67,6 +67,10 @@ $Gradient2: #F3FFF8;
         align-items: center;
         padding: 8px;
 
+        &:hover {
+            opacity: 0.7;
+        }
+
         &__icon {
             margin-right: 16px;
             color: $Grey-100;
@@ -454,7 +458,7 @@ $Gradient2: #F3FFF8;
             color: $Primary-White;
             display: flex;
             align-items: center;
-            width: 241px;
+            width: 210px;
             justify-content: space-between;
             font-size: 14px;
             font-weight: 600;
