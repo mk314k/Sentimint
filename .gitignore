@@ -129,5 +129,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-check.ipynb
+check*.ipynb
+checkpoints*
+*.pth
 
