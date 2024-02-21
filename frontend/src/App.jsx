@@ -66,7 +66,7 @@ function App() {
         <Router>
             <Menu />
             <main className='content flex-vertical'>
-                <div className='search'>
+                <div className='search flex-horizontal'>
                     <img src={MagnifyingGlassIcon} className='search__icon' />
                     <span className='search__text'>Search</span>
                     <img src={BellIcon} className='search__icon--right' />

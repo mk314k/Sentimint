@@ -22,8 +22,9 @@ $Gradient2: #F3FFF8;
 
 #root {
     display: flex;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+
 }
 
 .menu {
@@ -109,8 +110,7 @@ $Gradient2: #F3FFF8;
 }
 
 .search {
-    display: flex;
-    align-items: center;
+    width: 100%;
     border-bottom: 1px solid $Grey-600;
     padding: 20px 0;
     font-size: 14px;
