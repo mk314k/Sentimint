@@ -1,6 +1,7 @@
 import './App.scss';
 import Overview from './Overview.jsx';
 import Sentiment from './Sentiment.jsx'
+import SentimentAnalysisComponent from './sentimint.jsx';
 import MagnifyingGlassIcon from './icons/magnifying-glass.svg';
 import CogIcon from './icons/cog.svg';
 import BellIcon from './icons/bell.svg';
@@ -24,7 +25,7 @@ function Menu() {
     const mainMenuItems = [
         { to: '/', icon: 'home', label: 'Overview', class: homeClass },
         { to: '/sentiment', icon: 'favorite', label: 'Sentiment', class: sentimentClass },
-        { to: '/', icon: 'star', label: 'Reviews', class: 'menu__item' },
+        { to: '/analyze', icon: 'star', label: 'Reviews', class: 'menu__item' },
         { to: '/', icon: 'signal_cellular_alt', label: 'Compare', class: 'menu__item' },
     ];
 
@@ -77,6 +78,7 @@ function App() {
                     <Route path ="/" element={<Overview />} />
                     <Route path ="/Google-PM-Hackathon-2024/" element={<Overview />} />
                     <Route path ="/sentiment" element={<Sentiment />} />
+                    <Route path ="/analyze" element={<SentimentAnalysisComponent />} />
                 </Routes>
             </main>
         </Router>
