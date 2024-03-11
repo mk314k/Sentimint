@@ -25,12 +25,13 @@ function Menu() {
     const mainMenuItems = [
         { to: '/', icon: 'home', label: 'Overview', class: homeClass },
         { to: '/sentiment', icon: 'favorite', label: 'Sentiment', class: sentimentClass },
-        { to: '/analyze', icon: 'star', label: 'Reviews', class: 'menu__item' },
+        { to: '/', icon: 'star', label: 'Reviews', class: 'menu__item' },
         { to: '/', icon: 'signal_cellular_alt', label: 'Compare', class: 'menu__item' },
     ];
 
     // pinned items
     const pinnedItems = [
+        { to: '/analyze', icon: 'model_training', label: 'ABSA Model', class: 'menu__item' },
         { to: '/', icon: 'location_on', label: 'Locations' },
         { to: '/', icon: 'forum', label: 'Social' },
     ];

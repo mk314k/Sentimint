@@ -3,22 +3,40 @@ import axios from 'axios';
 
 function SentimentAnalysisComponent() {
   const [reviewText, setReviewText] = useState('');
-  const [sentimentResult, setSentimentResult] = useState('');
+  const [sentimentResult, setSentimentResult] = useState([]);
 
   const handleApplySentiment = () => {
     axios.post('https://sentimint.onrender.com/absa', { text: reviewText })
       .then(response => {
-        console.log(reviewText);
-        setSentimentResult(response.data);
-        console.log(sentimentResult);
+        const data = response.data.result;
+        const combinedAspects = {};
+
+        data.forEach(aspect => {
+            if (!(aspect.aspect in combinedAspects)) {
+            combinedAspects[aspect.aspect] = { aspect: aspect.aspect, descriptions: [] };
+            }
+            combinedAspects[aspect.aspect].descriptions.push({
+                text: aspect.description,
+                sentiment: aspect.sentiment[0]
+            });
+        });
+
+        setSentimentResult(Object.values(combinedAspects));
       })
       .catch(error => {
         console.error('Error fetching sentiment analysis:', error);
       });
   };
 
+  const getSentimentColor = (sentiment) => {
+    // Interpolate color from red to green based on sentiment polarity
+    const greenValue = Math.floor((sentiment + 1) * 128);
+    const redValue = Math.floor((1 - sentiment) * 128);
+    return `rgba(${redValue}, ${greenValue}, 0, 0.7)`;
+  };
+
   return (
-    <div>
+    <div className='container flex-vertical'>
       <textarea
         rows={10}
         cols={50}
@@ -29,12 +47,24 @@ function SentimentAnalysisComponent() {
       <br />
       <button onClick={handleApplySentiment}>Apply Sentiment</button>
       <br />
-      {/* {sentimentResult && (
-        <div>
-          <h3>Sentiment Analysis Result:</h3>
-          <p>{sentimentResult}</p>
+      {sentimentResult.length >0 && (
+        <div className='flex-horizontal'>
+            {sentimentResult.map((aspect, index) => (
+                <div className="card" key={index}>
+                    <h3>{aspect.aspect}</h3>
+                    {aspect.descriptions.map((description, idx) => (
+                    <div
+                        key={idx}
+                        className="description"
+                        style={{ backgroundColor: getSentimentColor(description.sentiment) }}
+                    >
+                        {description.text}
+                    </div>
+                    ))}
+                </div>
+            ))}
         </div>
-      )} */}
+      )}
     </div>
   );
 }
